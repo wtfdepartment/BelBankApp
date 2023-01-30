@@ -13,6 +13,12 @@
 		1F12BA622986FA060006A773 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F12BA602986FA060006A773 /* Main.storyboard */; };
 		1F12BA642986FA060006A773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F12BA632986FA060006A773 /* Assets.xcassets */; };
 		1F12BA672986FA060006A773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F12BA652986FA060006A773 /* LaunchScreen.storyboard */; };
+		1F12BA722987AB0C0006A773 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12BA712987AB0C0006A773 /* MapController.swift */; };
+		1F3E8BE92987B93500CFC3B2 /* BankProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E8BE82987B93500CFC3B2 /* BankProvider.swift */; };
+		1F3E8BEB2987B94100CFC3B2 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E8BEA2987B94100CFC3B2 /* BankModel.swift */; };
+		1F3E8BED2987B95900CFC3B2 /* BankAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E8BEC2987B95900CFC3B2 /* BankAPI.swift */; };
+		1F3E8BF22987CCCA00CFC3B2 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E8BF02987CCCA00CFC3B2 /* MapCollectionViewCell.swift */; };
+		1F3E8BF32987CCCA00CFC3B2 /* MapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */; };
 		7F8180C49B7F26430BDD4ED7 /* Pods_BelBankApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A5332AF7E2AAF9A678BA84 /* Pods_BelBankApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +31,12 @@
 		1F12BA632986FA060006A773 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F12BA662986FA060006A773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F12BA682986FA060006A773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F12BA712987AB0C0006A773 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		1F3E8BE82987B93500CFC3B2 /* BankProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankProvider.swift; sourceTree = "<group>"; };
+		1F3E8BEA2987B94100CFC3B2 /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
+		1F3E8BEC2987B95900CFC3B2 /* BankAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAPI.swift; sourceTree = "<group>"; };
+		1F3E8BF02987CCCA00CFC3B2 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCollectionViewCell.xib; sourceTree = "<group>"; };
 		2AFD4D3E732B8DAF3CFB6244 /* Pods-BelBankApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BelBankApp.release.xcconfig"; path = "Target Support Files/Pods-BelBankApp/Pods-BelBankApp.release.xcconfig"; sourceTree = "<group>"; };
 		71A5332AF7E2AAF9A678BA84 /* Pods_BelBankApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BelBankApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D20DFD86F99A6126704435 /* Pods-BelBankApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BelBankApp.debug.xcconfig"; path = "Target Support Files/Pods-BelBankApp/Pods-BelBankApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +75,8 @@
 		1F12BA592986FA060006A773 /* BelBankApp */ = {
 			isa = PBXGroup;
 			children = (
+				1F3E8BEE2987CC9F00CFC3B2 /* Cells */,
+				1F12BA6E2987AAA50006A773 /* Controllers */,
 				1F12BA5A2986FA060006A773 /* AppDelegate.swift */,
 				1F12BA5C2986FA060006A773 /* SceneDelegate.swift */,
 				1F12BA5E2986FA060006A773 /* ViewController.swift */,
@@ -70,8 +84,36 @@
 				1F12BA632986FA060006A773 /* Assets.xcassets */,
 				1F12BA652986FA060006A773 /* LaunchScreen.storyboard */,
 				1F12BA682986FA060006A773 /* Info.plist */,
+				1F3E8BEC2987B95900CFC3B2 /* BankAPI.swift */,
+				1F3E8BE82987B93500CFC3B2 /* BankProvider.swift */,
+				1F3E8BEA2987B94100CFC3B2 /* BankModel.swift */,
 			);
 			path = BelBankApp;
+			sourceTree = "<group>";
+		};
+		1F12BA6E2987AAA50006A773 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F12BA712987AB0C0006A773 /* MapController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1F3E8BEE2987CC9F00CFC3B2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E8BEF2987CCAC00CFC3B2 /* MapCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1F3E8BEF2987CCAC00CFC3B2 /* MapCell */ = {
+			isa = PBXGroup;
+			children = (
+				1F3E8BF02987CCCA00CFC3B2 /* MapCollectionViewCell.swift */,
+				1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */,
+			);
+			path = MapCell;
 			sourceTree = "<group>";
 		};
 		71841A43F3032E97BA66A695 /* Frameworks */ = {
@@ -88,7 +130,6 @@
 				B9D20DFD86F99A6126704435 /* Pods-BelBankApp.debug.xcconfig */,
 				2AFD4D3E732B8DAF3CFB6244 /* Pods-BelBankApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,6 +197,7 @@
 				1F12BA672986FA060006A773 /* LaunchScreen.storyboard in Resources */,
 				1F12BA642986FA060006A773 /* Assets.xcassets in Resources */,
 				1F12BA622986FA060006A773 /* Main.storyboard in Resources */,
+				1F3E8BF32987CCCA00CFC3B2 /* MapCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,9 +267,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F12BA722987AB0C0006A773 /* MapController.swift in Sources */,
+				1F3E8BEB2987B94100CFC3B2 /* BankModel.swift in Sources */,
+				1F3E8BE92987B93500CFC3B2 /* BankProvider.swift in Sources */,
+				1F3E8BF22987CCCA00CFC3B2 /* MapCollectionViewCell.swift in Sources */,
 				1F12BA5F2986FA060006A773 /* ViewController.swift in Sources */,
 				1F12BA5B2986FA060006A773 /* AppDelegate.swift in Sources */,
 				1F12BA5D2986FA060006A773 /* SceneDelegate.swift in Sources */,
+				1F3E8BED2987B95900CFC3B2 /* BankAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
