@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import GoogleMapsUtils
 
 class MapController: UIViewController {
     
@@ -15,6 +16,10 @@ class MapController: UIViewController {
     
     private var cities: [String] = []
     private var filter: [FilterTypes] = ["ATM", "Fillials", "All"]
+    private var atmsMarkers = [GMSMarker]()
+    private var fillialsMarkers = [GMSMarker]()
+    private let locationManager = CLLocationManager()
+    private var clusterManager: GMUClusterManager!
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -28,6 +33,20 @@ class MapController: UIViewController {
         getAllBanks()
         mapView.delegate = self
         setUpCollectionViews()
+        initGoogleMap()
+        initLocationManager()
+        initCluster()
+    }
+    
+    private func initGoogleMap() {
+        mapView.isMyLocationEnabled = true
+        mapView.delegate = self
+    }
+    
+    private func initLocationManager() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     private func getAllCities(banks: [BankModel]) {
@@ -45,8 +64,44 @@ class MapController: UIViewController {
         BelarusBankProvider().bankAdress { bank in
             self.getAllCities(banks: bank)
         }
+        
+//        BelarusBankProvider().getATMs(city: "") { bank in
+//            self.setAtmMarkers(bank)
+//        }
+        
+        BelarusBankProvider().getFillials(city: "") { bank in
+            self.getAllCities(banks: bank)
+        }
+
         let locationManger = CLLocationManager()
         locationManger.requestAlwaysAuthorization()
+    }
+    
+    private func initCluster() {
+        let iconGenerator = GMUDefaultClusterIconGenerator()
+        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
+        let renderer = GMUDefaultClusterRenderer(mapView: mapView, clusterIconGenerator: iconGenerator)
+        clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm, renderer: renderer)
+        clusterManager.setMapDelegate(self)
+    }
+    
+    private func setAtmMarkers(_ atms: [ATMModel]) {
+        atms.forEach { atm in
+            guard let latitude = Double(atm.latitude),
+                  let longitude = Double(atm.longitude)
+            else { return }
+            
+            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+            marker.title = "Банкомат: \(atm.id)"
+            marker.snippet = "Адрес: \(atm.cityType) \(atm.city), \(atm.addressType) \(atm.address), \(atm.house)\nВремя работы: \(atm.workTime)"
+            marker.icon = GMSMarker.markerImage(with: .green)
+            atmsMarkers.append(marker)
+        }
+        
+        clusterManager.add(atmsMarkers)
+        if atmsMarkers.count > 0, fillialsMarkers.count > 0 {
+            clusterManager.cluster()
+        }
     }
     
     private func drawMarkers(to location: CLLocationCoordinate2D) {
@@ -68,11 +123,11 @@ class MapController: UIViewController {
         filtersCollectionView.register(nib, forCellWithReuseIdentifier: id)
     }
     
-    func calculateCollectionViewCellSize() -> CGSize {
-        let height: CGFloat = 50
-        let width: CGFloat = 2.5 * height
-        return CGSize(width: width, height: height)
-    }
+//    func calculateCollectionViewCellSize() -> CGSize {
+//        let height: CGFloat = 30
+//        let width: CGFloat = 2.5 * height
+//        return CGSize(width: width, height: height)
+//    }
     
     private func drawMarkersByCity(atms: [BankModel]) {
         mapView.clear()
@@ -91,6 +146,35 @@ extension MapController: GMSMapViewDelegate {
     }
 }
 
+extension MapController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if collectionView == filtersCollectionView {
+            switch filter[indexPath.row] {
+                case "ATM":
+                    atmsMarkers.forEach { marker in
+                        self.clusterManager.add(marker)
+                    }
+                case "Fillials":
+                    atmsMarkers.forEach { marker in
+                        self.clusterManager.add(marker)
+                    }
+                case "All":
+                    atmsMarkers.forEach { marker in
+                        self.clusterManager.add(marker)
+                    }
+                    fillialsMarkers.forEach { marker in
+                        self.clusterManager.add(marker)
+                    }
+                    
+                default:
+                    return
+            }
+            self.clusterManager.cluster()
+            filtersCollectionView.reloadData()
+        }
+    }
+}
+
 extension MapController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         BelarusBankProvider().atmAdressByCity(city: cities[indexPath.row]) { atms in
@@ -98,7 +182,9 @@ extension MapController: UICollectionViewDelegateFlowLayout {
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        calculateCollectionViewCellSize()
+        
+        let width: CGFloat = 60
+        return CGSize(width: width, height: 30)
     }
 }
 
@@ -132,5 +218,19 @@ extension MapController: UICollectionViewDataSource {
         }()
         mapCell.setUpCell(title: text)
         return mapCell
+    }
+}
+
+extension MapController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locationManager.location?.coordinate
+        cameraMoveToLocation(toLocation: location)
+        locationManager.stopUpdatingLocation()
+    }
+
+    func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
+        guard let toLocation else { return }
+
+        mapView.camera = GMSCameraPosition.camera(withTarget: toLocation, zoom: 15)
     }
 }

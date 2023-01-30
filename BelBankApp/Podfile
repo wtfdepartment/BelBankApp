@@ -10,5 +10,6 @@ target 'BelBankApp' do
    pod 'RealmSwift'
    pod 'Moya'
    pod 'Moya-ObjectMapper', '2.9'
+   pod 'Google-Maps-iOS-Utils', '~> 4.1.0'
 
 end

@@ -39,6 +39,34 @@ final class BelarusBankProvider {
             }
         }
     }
+    
+    func getATMs(city: String, bankBlock: @escaping ([BankModel]) -> Void, failure: (() -> Void)? = nil){
+        provider.request(.atm(city: "")) { result in
+            switch result {
+                case .success(let response):
+                    guard let adress = try? response.mapArray(BankModel.self) else { return }
+                    bankBlock(adress)
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    failure?()
+            }
+        }
+    }
+    
+    func getFillials(city: String, bankBlock: @escaping ([BankModel]) -> Void, failure: (() -> Void)? = nil){
+        provider.request(.fillials) { result in
+            switch result {
+                case .success(let response):
+                    guard let adress = try? response.mapArray(BankModel.self) else { return }
+                    bankBlock(adress)
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    failure?()
+            }
+        }
+    }
 }
 
 final class GemProvider {
