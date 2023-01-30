@@ -59,3 +59,61 @@ class GemModel: Mappable {
         gemCityName          <- map["name"]
     }
 }
+// MARK: FillialModel
+class FillialModel: Mappable {
+    
+    var filialName: String = ""
+    var nameType: String = ""
+    var name: String = ""
+    var streetType: String = ""
+    var street: String = ""
+    var homeNumber: String = ""
+    var phone: String = ""
+    var latitude = ""
+    var longitude = ""
+    
+    required init?(map: ObjectMapper.Map) {
+        mapping(map: map)
+    }
+    
+    func mapping(map: ObjectMapper.Map) {
+        filialName <- map["filial_name"]
+        nameType   <- map["name_type"]
+        name       <- map["name"]
+        streetType <- map["street_type"]
+        street     <- map["street"]
+        homeNumber <- map["home_number"]
+        latitude   <- map["GPS_X"]
+        longitude  <- map["GPS_Y"]
+    }
+    
+}
+// MARK: ATMModel
+class ATMModel: Mappable {
+    
+    var id = ""
+    var cityType = ""
+    var city = ""
+    var addressType = ""
+    var address = ""
+    var house = ""
+    var workTime = ""
+    var latitude = ""
+    var longitude = ""
+    
+    required init?(map: ObjectMapper.Map) {
+        self.mapping(map: map)
+    }
+    
+    func mapping(map: ObjectMapper.Map) {
+        id          <- map["id"]
+        cityType    <- map["city_type"]
+        city        <- map["city"]
+        addressType <- map["address_type"]
+        address     <- map["address"]
+        house       <- map["house"]
+        workTime    <- map["work_time"]
+        latitude    <- map["gps_x"]
+        longitude   <- map["gps_y"]
+    }
+}

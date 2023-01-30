@@ -11,18 +11,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MapCollectionViewCell" customModule="BelBankApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="214" height="81"/>
+            <rect key="frame" x="0.0" y="0.0" width="214" height="66"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="214" height="81"/>
+                <rect key="frame" x="0.0" y="0.0" width="214" height="66"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vx-t2-uFt">
-                        <rect key="frame" x="0.0" y="0.0" width="214" height="81"/>
+                        <rect key="frame" x="0.0" y="0.0" width="214" height="30"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="nTp-yg-a72"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cC5-tb-9QB">
-                        <rect key="frame" x="0.0" y="0.0" width="214" height="81"/>
+                        <rect key="frame" x="10" y="0.0" width="194" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="nPW-fQ-8FG"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -31,21 +37,19 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="cC5-tb-9QB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1XO-vv-aaG"/>
-                <constraint firstAttribute="bottom" secondItem="3vx-t2-uFt" secondAttribute="bottom" id="5op-dj-tS1"/>
-                <constraint firstAttribute="bottom" secondItem="cC5-tb-9QB" secondAttribute="bottom" id="B4A-ux-Qit"/>
-                <constraint firstAttribute="trailing" secondItem="cC5-tb-9QB" secondAttribute="trailing" id="BGa-hS-8Xc"/>
+                <constraint firstAttribute="trailing" secondItem="cC5-tb-9QB" secondAttribute="trailing" constant="10" id="6Z5-KN-Whr"/>
+                <constraint firstItem="cC5-tb-9QB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="6sm-N9-C2e"/>
                 <constraint firstItem="cC5-tb-9QB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MWx-N9-in4"/>
                 <constraint firstItem="3vx-t2-uFt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ai1-NO-LNJ"/>
                 <constraint firstItem="3vx-t2-uFt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jfx-NA-vxI"/>
                 <constraint firstAttribute="trailing" secondItem="3vx-t2-uFt" secondAttribute="trailing" id="rkV-Yz-KDf"/>
             </constraints>
-            <size key="customSize" width="214" height="81"/>
+            <size key="customSize" width="214" height="66"/>
             <connections>
                 <outlet property="container" destination="3vx-t2-uFt" id="OwC-iJ-cEN"/>
                 <outlet property="titleLabel" destination="cC5-tb-9QB" id="Sne-R0-uZ7"/>
             </connections>
-            <point key="canvasLocation" x="-29.007633587786259" y="-1.7605633802816902"/>
+            <point key="canvasLocation" x="-29.007633587786259" y="-7.042253521126761"/>
         </collectionViewCell>
     </objects>
     <resources>
