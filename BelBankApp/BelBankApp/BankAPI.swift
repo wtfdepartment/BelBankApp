@@ -12,6 +12,7 @@ enum BankAPI {
     case adress
     case gem
     case fillials
+    case metals
     case atm(city: String)
 }
 
@@ -28,12 +29,14 @@ extension BankAPI: TargetType{
                 return "/getgems"
             case .fillials:
                 return "/filials_info"
+            case .metals:
+                return "/getinfodrall"
         }
     }
     
     var method: Moya.Method {
         switch self {
-            case .adress, .gem, .atm, .fillials:
+            case .adress, .gem, .atm, .fillials, .metals:
                 return .get
         }
     }
@@ -56,13 +59,11 @@ extension BankAPI: TargetType{
         var params = [String: Any]()
         
         switch self {
-            case .adress, .gem:
+            case .adress, .gem, .fillials, .metals:
                 return nil
 //                params["city"] = ""
             case .atm(let city):
                 params["city"] = city
-            case .fillials:
-                return nil
         }
         
         return params
@@ -70,7 +71,7 @@ extension BankAPI: TargetType{
     
     var encoding: ParameterEncoding {
         switch self {
-            case .adress, .gem, .atm, .fillials:
+            case .adress, .gem, .atm, .fillials, .metals:
                 return URLEncoding.queryString
         }
     }

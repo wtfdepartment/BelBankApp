@@ -85,4 +85,19 @@ final class GemProvider {
             }
         }
     }
+    
+    func getMetals(success: @escaping (([MetalModel]) -> Void), failure: ((String) -> Void)?) {
+        provider.request(.metals) { result in
+            switch result {
+                case .success(let response):
+                    guard let result = try? response.mapArray(MetalModel.self) else { return }
+                    
+                    success(result)
+                case .failure(let error):
+                    guard let description = error.errorDescription else { return }
+                    
+                    failure?(description)
+            }
+        }
+    }
 }
