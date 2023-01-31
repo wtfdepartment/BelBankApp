@@ -16,20 +16,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0GU-kC-mIx">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0GU-kC-mIx" secondAttribute="trailing" id="4HR-mW-455"/>
-                            <constraint firstItem="0GU-kC-mIx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qrs-5i-TKL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0GU-kC-mIx" secondAttribute="bottom" id="gIm-2h-eGB"/>
-                            <constraint firstItem="0GU-kC-mIx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mLi-XN-MXn"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jBw-8P-1be"/>
                 </viewController>
@@ -182,7 +170,7 @@
         <scene sceneID="gWJ-7G-Ly6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s2i-1c-LSn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Gem" image="diamond.fill" selectedImage="diamond.fill" catalog="system" id="qJS-Gm-Sum">
+                    <tabBarItem key="tabBarItem" title="Gem" image="diamond.fill" catalog="system" selectedImage="diamond.fill" id="qJS-Gm-Sum">
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -221,7 +209,6 @@
     </scenes>
     <resources>
         <image name="diamond.fill" catalog="system" width="128" height="124"/>
-        <image name="diamond.fill" width="128" height="128"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
