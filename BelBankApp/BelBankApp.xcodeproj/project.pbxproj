@@ -19,6 +19,9 @@
 		1F3E8BED2987B95900CFC3B2 /* BankAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E8BEC2987B95900CFC3B2 /* BankAPI.swift */; };
 		1F3E8BF22987CCCA00CFC3B2 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E8BF02987CCCA00CFC3B2 /* MapCollectionViewCell.swift */; };
 		1F3E8BF32987CCCA00CFC3B2 /* MapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */; };
+		1FD7A77329891DE200CF03BC /* GemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD7A77229891DE200CF03BC /* GemController.swift */; };
+		1FD7A77629891DFA00CF03BC /* GemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD7A77429891DFA00CF03BC /* GemTableViewCell.swift */; };
+		1FD7A77729891DFA00CF03BC /* GemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD7A77529891DFA00CF03BC /* GemTableViewCell.xib */; };
 		7F8180C49B7F26430BDD4ED7 /* Pods_BelBankApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A5332AF7E2AAF9A678BA84 /* Pods_BelBankApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,9 @@
 		1F3E8BEC2987B95900CFC3B2 /* BankAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAPI.swift; sourceTree = "<group>"; };
 		1F3E8BF02987CCCA00CFC3B2 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCollectionViewCell.xib; sourceTree = "<group>"; };
+		1FD7A77229891DE200CF03BC /* GemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemController.swift; sourceTree = "<group>"; };
+		1FD7A77429891DFA00CF03BC /* GemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemTableViewCell.swift; sourceTree = "<group>"; };
+		1FD7A77529891DFA00CF03BC /* GemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GemTableViewCell.xib; sourceTree = "<group>"; };
 		2AFD4D3E732B8DAF3CFB6244 /* Pods-BelBankApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BelBankApp.release.xcconfig"; path = "Target Support Files/Pods-BelBankApp/Pods-BelBankApp.release.xcconfig"; sourceTree = "<group>"; };
 		71A5332AF7E2AAF9A678BA84 /* Pods_BelBankApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BelBankApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D20DFD86F99A6126704435 /* Pods-BelBankApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BelBankApp.debug.xcconfig"; path = "Target Support Files/Pods-BelBankApp/Pods-BelBankApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				1F12BA712987AB0C0006A773 /* MapController.swift */,
+				1FD7A77229891DE200CF03BC /* GemController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -102,6 +109,7 @@
 		1F3E8BEE2987CC9F00CFC3B2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1FD7A77129891DBD00CF03BC /* GemCell */,
 				1F3E8BEF2987CCAC00CFC3B2 /* MapCell */,
 			);
 			path = Cells;
@@ -114,6 +122,15 @@
 				1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */,
 			);
 			path = MapCell;
+			sourceTree = "<group>";
+		};
+		1FD7A77129891DBD00CF03BC /* GemCell */ = {
+			isa = PBXGroup;
+			children = (
+				1FD7A77429891DFA00CF03BC /* GemTableViewCell.swift */,
+				1FD7A77529891DFA00CF03BC /* GemTableViewCell.xib */,
+			);
+			path = GemCell;
 			sourceTree = "<group>";
 		};
 		71841A43F3032E97BA66A695 /* Frameworks */ = {
@@ -197,6 +214,7 @@
 				1F12BA672986FA060006A773 /* LaunchScreen.storyboard in Resources */,
 				1F12BA642986FA060006A773 /* Assets.xcassets in Resources */,
 				1F12BA622986FA060006A773 /* Main.storyboard in Resources */,
+				1FD7A77729891DFA00CF03BC /* GemTableViewCell.xib in Resources */,
 				1F3E8BF32987CCCA00CFC3B2 /* MapCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,9 +290,11 @@
 				1F3E8BE92987B93500CFC3B2 /* BankProvider.swift in Sources */,
 				1F3E8BF22987CCCA00CFC3B2 /* MapCollectionViewCell.swift in Sources */,
 				1F12BA5F2986FA060006A773 /* ViewController.swift in Sources */,
+				1FD7A77329891DE200CF03BC /* GemController.swift in Sources */,
 				1F12BA5B2986FA060006A773 /* AppDelegate.swift in Sources */,
 				1F12BA5D2986FA060006A773 /* SceneDelegate.swift in Sources */,
 				1F3E8BED2987B95900CFC3B2 /* BankAPI.swift in Sources */,
+				1FD7A77629891DFA00CF03BC /* GemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
