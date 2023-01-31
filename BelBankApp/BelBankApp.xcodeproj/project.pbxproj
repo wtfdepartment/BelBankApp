@@ -102,7 +102,6 @@
 		1F3E8BEE2987CC9F00CFC3B2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1F9EED582989031400E97000 /* GemCell */,
 				1F3E8BEF2987CCAC00CFC3B2 /* MapCell */,
 			);
 			path = Cells;
@@ -115,13 +114,6 @@
 				1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */,
 			);
 			path = MapCell;
-			sourceTree = "<group>";
-		};
-		1F9EED582989031400E97000 /* GemCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GemCell;
 			sourceTree = "<group>";
 		};
 		71841A43F3032E97BA66A695 /* Frameworks */ = {
