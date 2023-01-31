@@ -19,6 +19,9 @@
 		1F3E8BED2987B95900CFC3B2 /* BankAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E8BEC2987B95900CFC3B2 /* BankAPI.swift */; };
 		1F3E8BF22987CCCA00CFC3B2 /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E8BF02987CCCA00CFC3B2 /* MapCollectionViewCell.swift */; };
 		1F3E8BF32987CCCA00CFC3B2 /* MapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */; };
+		1F995A6C298925970043659A /* MetalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F995A6B298925970043659A /* MetalController.swift */; };
+		1F995A6F298925FB0043659A /* MetalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F995A6D298925FB0043659A /* MetalTableViewCell.swift */; };
+		1F995A70298925FB0043659A /* MetalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F995A6E298925FB0043659A /* MetalTableViewCell.xib */; };
 		1FD7A77329891DE200CF03BC /* GemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD7A77229891DE200CF03BC /* GemController.swift */; };
 		1FD7A77629891DFA00CF03BC /* GemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD7A77429891DFA00CF03BC /* GemTableViewCell.swift */; };
 		1FD7A77729891DFA00CF03BC /* GemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FD7A77529891DFA00CF03BC /* GemTableViewCell.xib */; };
@@ -40,6 +43,9 @@
 		1F3E8BEC2987B95900CFC3B2 /* BankAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAPI.swift; sourceTree = "<group>"; };
 		1F3E8BF02987CCCA00CFC3B2 /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCollectionViewCell.xib; sourceTree = "<group>"; };
+		1F995A6B298925970043659A /* MetalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalController.swift; sourceTree = "<group>"; };
+		1F995A6D298925FB0043659A /* MetalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTableViewCell.swift; sourceTree = "<group>"; };
+		1F995A6E298925FB0043659A /* MetalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MetalTableViewCell.xib; sourceTree = "<group>"; };
 		1FD7A77229891DE200CF03BC /* GemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemController.swift; sourceTree = "<group>"; };
 		1FD7A77429891DFA00CF03BC /* GemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemTableViewCell.swift; sourceTree = "<group>"; };
 		1FD7A77529891DFA00CF03BC /* GemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GemTableViewCell.xib; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 			children = (
 				1F12BA712987AB0C0006A773 /* MapController.swift */,
 				1FD7A77229891DE200CF03BC /* GemController.swift */,
+				1F995A6B298925970043659A /* MetalController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 		1F3E8BEE2987CC9F00CFC3B2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1F995A6A298923DF0043659A /* MetalCell */,
 				1FD7A77129891DBD00CF03BC /* GemCell */,
 				1F3E8BEF2987CCAC00CFC3B2 /* MapCell */,
 			);
@@ -122,6 +130,15 @@
 				1F3E8BF12987CCCA00CFC3B2 /* MapCollectionViewCell.xib */,
 			);
 			path = MapCell;
+			sourceTree = "<group>";
+		};
+		1F995A6A298923DF0043659A /* MetalCell */ = {
+			isa = PBXGroup;
+			children = (
+				1F995A6D298925FB0043659A /* MetalTableViewCell.swift */,
+				1F995A6E298925FB0043659A /* MetalTableViewCell.xib */,
+			);
+			path = MetalCell;
 			sourceTree = "<group>";
 		};
 		1FD7A77129891DBD00CF03BC /* GemCell */ = {
@@ -212,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F12BA672986FA060006A773 /* LaunchScreen.storyboard in Resources */,
+				1F995A70298925FB0043659A /* MetalTableViewCell.xib in Resources */,
 				1F12BA642986FA060006A773 /* Assets.xcassets in Resources */,
 				1F12BA622986FA060006A773 /* Main.storyboard in Resources */,
 				1FD7A77729891DFA00CF03BC /* GemTableViewCell.xib in Resources */,
@@ -286,10 +304,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F12BA722987AB0C0006A773 /* MapController.swift in Sources */,
+				1F995A6F298925FB0043659A /* MetalTableViewCell.swift in Sources */,
 				1F3E8BEB2987B94100CFC3B2 /* BankModel.swift in Sources */,
 				1F3E8BE92987B93500CFC3B2 /* BankProvider.swift in Sources */,
 				1F3E8BF22987CCCA00CFC3B2 /* MapCollectionViewCell.swift in Sources */,
 				1F12BA5F2986FA060006A773 /* ViewController.swift in Sources */,
+				1F995A6C298925970043659A /* MetalController.swift in Sources */,
 				1FD7A77329891DE200CF03BC /* GemController.swift in Sources */,
 				1F12BA5B2986FA060006A773 /* AppDelegate.swift in Sources */,
 				1F12BA5D2986FA060006A773 /* SceneDelegate.swift in Sources */,

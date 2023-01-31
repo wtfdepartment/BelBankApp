@@ -60,17 +60,47 @@
             </objects>
             <point key="canvasLocation" x="3100" y="268.3098591549296"/>
         </scene>
-        <!--View Controller-->
+        <!--Metal Controller-->
         <scene sceneID="SiC-Vn-mVt">
             <objects>
-                <viewController id="Q2j-YL-p9b" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MetalController" id="Q2j-YL-p9b" customClass="MetalController" customModule="BelBankApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w36-Ln-Z1R">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5ii-gu-KKQ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="32"/>
+                                <segments>
+                                    <segment title="Silver"/>
+                                    <segment title="Gold"/>
+                                    <segment title="Platinum"/>
+                                </segments>
+                                <connections>
+                                    <action selector="metalDidChange:" destination="Q2j-YL-p9b" eventType="valueChanged" id="fq6-7v-Drw"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="akC-Zg-ksN">
+                                <rect key="frame" x="0.0" y="134" width="393" height="635"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="LZB-Tb-G66"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5ii-gu-KKQ" firstAttribute="leading" secondItem="LZB-Tb-G66" secondAttribute="leading" id="Eun-33-8Io"/>
+                            <constraint firstItem="5ii-gu-KKQ" firstAttribute="top" secondItem="LZB-Tb-G66" secondAttribute="top" id="F2C-dI-5xc"/>
+                            <constraint firstItem="LZB-Tb-G66" firstAttribute="trailing" secondItem="akC-Zg-ksN" secondAttribute="trailing" id="TbL-Eb-SWA"/>
+                            <constraint firstItem="LZB-Tb-G66" firstAttribute="trailing" secondItem="5ii-gu-KKQ" secondAttribute="trailing" id="Ucp-CU-afE"/>
+                            <constraint firstItem="akC-Zg-ksN" firstAttribute="leading" secondItem="LZB-Tb-G66" secondAttribute="leading" id="qNN-1y-vLC"/>
+                            <constraint firstItem="LZB-Tb-G66" firstAttribute="bottom" secondItem="akC-Zg-ksN" secondAttribute="bottom" id="qea-hn-PaC"/>
+                            <constraint firstItem="akC-Zg-ksN" firstAttribute="top" secondItem="5ii-gu-KKQ" secondAttribute="bottom" id="t8T-jE-9iJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ERr-Rv-lAI"/>
+                    <connections>
+                        <outlet property="metalSegmentControl" destination="5ii-gu-KKQ" id="Ula-K0-N6C"/>
+                        <outlet property="metalTableView" destination="akC-Zg-ksN" id="128-e1-vbU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75D-zm-e63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,11 +237,11 @@
             </objects>
             <point key="canvasLocation" x="832.82442748091603" y="267.6056338028169"/>
         </scene>
-        <!--Item-->
+        <!--Metals-->
         <scene sceneID="SPD-0d-ePT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZTQ-TS-ggp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HC1-Gb-FHf"/>
+                    <tabBarItem key="tabBarItem" title="Metals" image="rectangle.fill" catalog="system" selectedImage="rectangle.fill" id="HC1-Gb-FHf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8ei-oP-fYb">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -230,6 +260,7 @@
     <resources>
         <image name="diamond.fill" catalog="system" width="128" height="124"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
+        <image name="rectangle.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

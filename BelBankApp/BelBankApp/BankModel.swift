@@ -117,3 +117,43 @@ class ATMModel: Mappable {
         longitude   <- map["gps_y"]
     }
 }
+// MARK: MetalModel
+class MetalModel: Mappable {
+    var gold10 = ""
+    var gold20 = ""
+    var gold50 = ""
+    var silver10 = ""
+    var silver20 = ""
+    var silver50 = ""
+    var platinum10 = ""
+    var platinum20 = ""
+    var platinum50 = ""
+    var streetType = ""
+    var street = ""
+    var fillialName = ""
+    var homeNumber = ""
+    var city = ""
+    var cityType = ""
+    
+    required init?(map: ObjectMapper.Map) {
+        self.mapping(map: map)
+    }
+    
+    func mapping(map: ObjectMapper.Map) {
+        gold10      <- map["ZOL_10_out"]
+        gold20      <- map["ZOL_20_out"]
+        gold50      <- map["ZOL_50_out"]
+        silver10    <- map["SIL_10_out"]
+        silver20    <- map["SIL_20_out"]
+        silver50    <- map["SIL_50_out"]
+        platinum10  <- map["PL_10_out"]
+        platinum20  <- map["PL_20_out"]
+        platinum50  <- map["PL_50_out"]
+        streetType  <- map["street_type"]
+        street      <- map["street"]
+        fillialName <- map["filials_text"]
+        homeNumber  <- map["home_number"]
+        city        <- map["name"]
+        cityType    <- map["name_type"]
+    }
+}
