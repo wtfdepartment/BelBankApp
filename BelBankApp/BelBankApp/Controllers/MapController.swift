@@ -65,13 +65,14 @@ class MapController: UIViewController {
             self.getAllCities(banks: bank)
         }
         
-//        BelarusBankProvider().getATMs(city: "") { bank in
-//            self.setAtmMarkers(bank)
+//        BelarusBankProvider().getATMs(city: "") { atm in
+//            self.setAtmMarkers(atms: atm)
 //        }
-        
-        BelarusBankProvider().getFillials(city: "") { bank in
-            self.getAllCities(banks: bank)
-        }
+//        
+//        BelarusBankProvider().getFillials(city: "") { filials in
+//            self.setFilialMarkers(fillials: filials)
+//            
+//        }
 
         let locationManger = CLLocationManager()
         locationManger.requestAlwaysAuthorization()
@@ -85,24 +86,45 @@ class MapController: UIViewController {
         clusterManager.setMapDelegate(self)
     }
     
-    private func setAtmMarkers(_ atms: [ATMModel]) {
-        atms.forEach { atm in
-            guard let latitude = Double(atm.latitude),
-                  let longitude = Double(atm.longitude)
-            else { return }
-            
-            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
-            marker.title = "Банкомат: \(atm.id)"
-            marker.snippet = "Адрес: \(atm.cityType) \(atm.city), \(atm.addressType) \(atm.address), \(atm.house)\nВремя работы: \(atm.workTime)"
-            marker.icon = GMSMarker.markerImage(with: .green)
-            atmsMarkers.append(marker)
-        }
-        
-        clusterManager.add(atmsMarkers)
-        if atmsMarkers.count > 0, fillialsMarkers.count > 0 {
-            clusterManager.cluster()
-        }
-    }
+//    private func setAtmMarkers(atms: [ATMModel]) {
+//        atms.forEach { atm in
+//            guard let latitude = Double(atm.latitude),
+//                  let longitude = Double(atm.longitude)
+//            else { return }
+//            
+//            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+//            marker.title = "Банкомат: \(atm.id)"
+//            marker.snippet = "Адрес: \(atm.cityType) \(atm.city), \(atm.addressType) \(atm.address), \(atm.house)\nВремя работы: \(atm.workTime)"
+//            marker.icon = GMSMarker.markerImage(with: .green)
+//            atmsMarkers.append(marker)
+//        }
+//        
+//        clusterManager.add(atmsMarkers)
+//        if atmsMarkers.count > 0, fillialsMarkers.count > 0 {
+//            clusterManager.cluster()
+//        }
+//    }
+    
+//    private func setFilialMarkers(fillials: [FillialModel]) {
+//        fillials.forEach { fillial in
+//            guard let latitude = Double(fillial.latitude),
+//                  let longitude = Double(fillial.longitude)
+//            else { return }
+//            
+//            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+//            marker.title = fillial.filialName
+//            marker.snippet = "Адрес: \(fillial.nameType) \(fillial.name), \(fillial.streetType) \(fillial.street), \(fillial.homeNumber)\nТелефон: \(fillial.phone)"
+//            let icon = UIImageView(image: UIImage(systemName: "building.columns.fill"))
+//            icon.tintColor = .green
+//            marker.iconView = icon
+//            fillialsMarkers.append(marker)
+//        }
+//        
+//        clusterManager.add(fillialsMarkers)
+//        if atmsMarkers.count > 0, fillialsMarkers.count > 0 {
+//            clusterManager.cluster()
+//        }
+//    }
     
     private func drawMarkers(to location: CLLocationCoordinate2D) {
         let marker = GMSMarker(position: location)

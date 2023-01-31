@@ -40,11 +40,11 @@ final class BelarusBankProvider {
         }
     }
     
-    func getATMs(city: String, bankBlock: @escaping ([BankModel]) -> Void, failure: (() -> Void)? = nil){
+    func getATMs(city: String, bankBlock: @escaping ([ATMModel]) -> Void, failure: (() -> Void)? = nil){
         provider.request(.atm(city: "")) { result in
             switch result {
                 case .success(let response):
-                    guard let adress = try? response.mapArray(BankModel.self) else { return }
+                    guard let adress = try? response.mapArray(ATMModel.self) else { return }
                     bankBlock(adress)
                     
                 case .failure(let error):
@@ -54,11 +54,11 @@ final class BelarusBankProvider {
         }
     }
     
-    func getFillials(city: String, bankBlock: @escaping ([BankModel]) -> Void, failure: (() -> Void)? = nil){
+    func getFillials(city: String, bankBlock: @escaping ([FillialModel]) -> Void, failure: (() -> Void)? = nil){
         provider.request(.fillials) { result in
             switch result {
                 case .success(let response):
-                    guard let adress = try? response.mapArray(BankModel.self) else { return }
+                    guard let adress = try? response.mapArray(FillialModel.self) else { return }
                     bankBlock(adress)
                     
                 case .failure(let error):
